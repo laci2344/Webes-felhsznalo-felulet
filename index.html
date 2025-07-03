@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ControlPanel</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="control-panel">
+        <h1>SmartGreenHouse</h1>
+        <h2 id="sub-title">Control Panel</h2>
+
+        <!-- Érzékelők által mért értékek megjelenítése -->
+        <div class="sensor-data">
+            <p>Jelenlegi Hőmérséklet: <span id="current-temp">--</span></p>
+            <p>Jelenlegi Páratartalom: <span id="current-humidity">--</span></p>
+            <p>Jelenlegi Talajnedvesség: <span id="current-soil-moisture">--</span></p>
+        </div>
+
+        <!-- Hőmérséklet beállítás -->
+        <div class="slider-container">
+            <label>Hőmérséklet: <span id="temp-values">15°C - 25°C</span></label>
+            <div class="range-slider">
+                <input type="range" id="temp-min" min="0" max="50" value="15" />
+                <input type="range" id="temp-max" min="0" max="50" value="25" />
+            </div>
+        </div>
+
+        <!-- Páratartalom beállítás -->
+        <div class="slider-container">
+            <label>Páratartalom: <span id="humidity-values">30% - 70%</span></label>
+            <div class="range-slider">
+                <input type="range" id="humidity-min" min="0" max="100" value="30" />
+                <input type="range" id="humidity-max" min="0" max="100" value="70" />
+            </div>
+        </div>
+
+        <!-- Föld nedvesség beállítás -->
+        <div class="slider-container">
+            <label>Talajnedvesség: <span id="soil-moisture-values">30% - 70%</span></label>
+            <div class="range-slider">
+                <input type="range" id="soil-moisture-min" min="0" max="100" value="30" />
+                <input type="range" id="soil-moisture-max" min="0" max="100" value="70" />
+            </div>
+        </div>
+
+        <!-- Gombok -->
+        <div class="button-container">
+            <button id="toggle-sliders" class="fancy-button"><span>Manuális Beállítás</span></button>
+            <button id="toggle-on-off" class="fancy-button"><span>Rendszer</span></button>
+        </div>
+
+        <!-- Kamera megjelenítés -->
+        <div class="video-container">
+            <h2>Kamera</h2>
+            <div class="video-feed">
+                <video id="camera-feed" width="320" height="240" autoplay muted></video>
+            </div>
+            <button id="toggle-camera" class="fancy-button"><span>Kamera Ki</span></button>
+        </div>
+    </div>
+
+    <!-- Weather panel added BELOW control-panel -->
+    <div class="weather-widget" style="margin-top: 20px; text-align: center;">
+        <h2>Időjárás</h2>
+        <div id="weather" style="font-size: 1.2em; margin-bottom: 10px;"></div>
+        <div id="weather-animation" style="width: 150px; height: 150px; margin: 0 auto;"></div>
+    </div>
+
+    <div id="live-clock">Jelenlegi idő: <span id="clock-time"></span></div>
+
+    <!-- Lottie script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.4/lottie.min.js"></script>
+
+    <script src="weather.js"></script>
+    <script src="script.js"></script>
+    <script src="clock.js"></script>
+
+</body>
+
+<footer class="fixed-footer">
+    <p>&copy; 2025 SmartGreenHouse.</p>
+</footer>
+
+</html>
